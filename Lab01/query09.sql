@@ -1,0 +1,6 @@
+SELECT NAME
+FROM DELIVERERS
+WHERE DELIVERERID IN (SELECT DELIVERERID
+                        FROM COMPANYDEL
+                        GROUP BY DELIVERERID
+                        HAVING COUNT(*)>1)
