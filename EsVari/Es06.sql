@@ -1,0 +1,7 @@
+ SELECT Nome
+ FROM PERSONA P, GENITORE G
+ WHERE G.NomeFiglio=P.Nome AND P.Età<10
+		AND G.NomeGen NOT IN (SELECT NomeGen
+						FROM GENITORE
+						GROUP BY NomeGen
+						HANIG COUNT (*)>1)
