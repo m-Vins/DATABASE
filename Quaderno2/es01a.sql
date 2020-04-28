@@ -10,7 +10,7 @@ e la loro durata complessiva. For each tour guide who has never guided a type of
 French-speaking groups, show name and surname
 */
 
-
+/*NON SO SE E' GIUSTO */
 SELECT G.Nome,G.Cognome,COUNT(*),TV.Durata
 FROM GUIDA G1,VISITA-GUIDATA-EFFETTUATA VGE,TIPO-VISTA TV
 WHERE VGE.CodGuida=G1.CodGuida AND TV.CodTipoVisita=VGE.CodTipoVisita
