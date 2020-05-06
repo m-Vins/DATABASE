@@ -10,12 +10,14 @@ e la loro durata complessiva. For each tour guide who has never guided a type of
 French-speaking groups, show name and surname
 */
 
-/*NON SO SE E' GIUSTO */
-SELECT G.Nome,G.Cognome,COUNT(*),TV.Durata
-FROM GUIDA G1,VISITA-GUIDATA-EFFETTUATA VGE,TIPO-VISTA TV
-WHERE VGE.CodGuida=G1.CodGuida AND TV.CodTipoVisita=VGE.CodTipoVisita
+
+SELECT G.Nome,G.Cognome,COUNT(*),SUM(TV.Durata)
+FROM GUIDA G1
+    LEFT OUTER JOIN VISITA-GUIDATA-EFFETTUATA  VGE
+    ON VGE.CodGuida=G1.CodGuida,TIPO-VISTA TV
+WHERE  TV.CodTipoVisita=VGE.CodTipoVisita
       AND G1.CodGuida NOT IN
-      (SELECT CodGuida
+      (SELECT G2.CodGuida
       FROM GUIDA G2,GRUPPO GR
       WHERE GR.Lingua='Francese' AND G2.CodGR=GR.CodGr)
-GROUP BY VGE.data
+GROUP BY G.CodGuida,G.Nome, G.Cognome, VGE.data 
