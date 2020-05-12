@@ -25,6 +25,4 @@ WHERE R.CodFiscale=I.CodFiscale AND I.CodCampo=CE.CodCampo AND
                             GROUP BY I1.CodFiscale,I1.CodCampo
                             HAVING COUNT(*)=MAX(SELECT COUNT(*)
                                                 FROM ISCRIZIONE-PER-ATTIVITA-IN-CAMPO-ESTIVO I2
-                                                GROPU BY I2.CodFiscale,I2.CodCampo))
-
-/*non sono
+                                                GROUP BY I2.CodFiscale,I2.CodCampo))
