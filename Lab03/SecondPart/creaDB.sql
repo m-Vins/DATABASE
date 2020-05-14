@@ -28,7 +28,7 @@ CREATE TABLE CORSI
   PRIMARY KEY(CodC),
   CONSTRAINT chk_Livello CHECK (Livello>=1 and Livello<=4)
 );
---chk_Livello??
+
 
 CREATE TABLE PROGRAMMA
 (CodFisc CHAR(16) NOT NULL,
